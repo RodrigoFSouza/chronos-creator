@@ -1,5 +1,6 @@
 dist: xenial
 language: java
+sudo: true
 jdk: openjdk17
 before_install:
   - chmod +x mvnw
