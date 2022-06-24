@@ -1,49 +1,14 @@
 server:
   port: 8088
 
-springdoc:
-  swagger-ui:
-    path: swagger-ui.html
-  api-docs:
-    path: /api-docs
-  packages-to-scan: com.chronos.chronoscreator.controller
-
-spring:
-  datasource:
-    drver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/creator
-    hikari:
-      username: limite
-      password: limite_passwd
-  jpa:
-    properties:
-      hibernate:
-        dialect: org.hibernate.dialect.PostgreSQL9Dialect
-        temp:
-          use_jdbc_metadata_defaults: false
-        hibernate.ddl-auto: create-drop
-        generate-ddl: true
-        show-sql: true
-  config:
-    activate:
-      on-profile: dev
-
 management:
   endpoints:
     web:
       exposure:
-        include: "*"
-  endpoint:
-    shutdown:
-      enabled: true
-  info:
-    git:
-      mode: simple
+        include: 'metrics, info, health'
+
+springdoc:
+  swagger-ui:
+    path: swagger-ui.html
 
 
-info:
-  app:
-    name: @project.name@
-    groupId: @project.groupId@
-    artifactId: @project.artifactId@
-    version: @project.version@
